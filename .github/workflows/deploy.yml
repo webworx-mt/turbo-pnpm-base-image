@@ -21,9 +21,9 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build --pull -t mtwebworx/turbo-pnpm-base-image:${{ github.sha }} -t mtwebworx/turbo-pnpm-base-image:latest .
+          docker build --pull -t ${{ secrets.DOCKER_USERNAME }}/turbo-pnpm-base-image:${{ github.sha }} -t ${{ secrets.DOCKER_USERNAME }}/turbo-pnpm-base-image:latest .
 
       - name: Push Docker Image
         run: |
-          docker push mtwebworx/turbo-pnpm-base-image:${{ github.sha }}
-          docker push mtwebworx/turbo-pnpm-base-image:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/turbo-pnpm-base-image:${{ github.sha }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/turbo-pnpm-base-image:latest
